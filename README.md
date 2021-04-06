@@ -5,5 +5,4 @@ Genome-Wide methylation analyses between high and low PTSD groups.
 
 **Cohort Size**: 48 samples/condition/group. 96 samples for Mother and 96 samples for infants.
 
-**Assay Platform**: Illumina Infinium Methylation EPIC BeadChip Kit 
-> **BPM** 
+**Assay Platform**: Illumina Infinium Methylation EPIC BeadChip Kit. Manifest files can be found [here](https://support.illumina.com/downloads/infinium-methylationepic-v1-0-product-files.html)
