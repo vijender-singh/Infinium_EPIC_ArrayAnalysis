@@ -4,11 +4,11 @@ R based Illumina Infinium Epicarray analysis
 
 Illuminas Infinium MethylationEPIC arrays is a genome wide methylation analysis method which quantitaively detects methylation of over 850K methylation sites at single nucleotide resolution. The sites under investigation encompass CpG islands, open chromatin sites, enhancer regions and other regulatory regions of genome. A detailed account on arrays can be found [here](https://genomebiology.biomedcentral.com/articles/10.1186/s13059-016-1066-1).
 
-During the processing of the DNA sample under investigation, DNA is treated with bisulphite where unmethylated Cytosines, e.g 5mC and 5hmC, get converted to Uracil while methylated Cytosines remain unchanged.  In the array technology site specific probes are used that can differentiate between methylated and unmethylated versions and final read out is relative fluorescent signals from the methylated vs. unmethylated sites. The outline of the process is illustrated below to demonstrate the concept. 
+During the processing of the DNA sample under investigation is treated with bisulphite where unmethylated Cytosines, e.g 5mC and 5hmC, get converted to Uracil while methylated Cytosines remain unchanged.  In the array technology site specific probes are used that can differentiate between methylated and unmethylated versions and final read out is relative fluorescent signals from the methylated vs. unmethylated sites. The outline of the process is illustrated below to demonstrate the concept. 
 
 ![Infinium array Process Image](./img/image1.png)
 
-It is crucial to understand the layout of the arrays as well as this information can help to identify and remove chip based confounding factors. The layout of the arrays may differ between what is showned here vs what you might be using, so be aware of it.   Each chip has a chipID number and there are 8 slots (here) that allows assay for 8 samples.  Each slot is labelled as R0NC01, where 0N is the row number, since there is only one column so it is always C01.
+It is crucial to understand the layout of the arrays as this information can help to identify and remove chip based confounding effects. The layout of the arrays may differ between what is showned here vs what you might be using, so be aware of it.   Each chip has a uniquechipID number and there are 8 slots/assays (here) on each chip that allows assay for 8 samples.  Each slot is labelled as R0NC01, where 0N is the row number, since there is only one column so it is always C01.
 
 ### Data Format:
 The scanner will produce .jpg image and .idat files.  IDAT is Illumina's properietary format to store summary intensities for each probe.  So for analysis we will be using IDAT files. The files are named as
@@ -23,7 +23,7 @@ In order to do a complete analysis we will also need metadata of each sample. Wh
 
 Cell type Deconvolution :  If the samples have cells of mixed type e.g blood or saliva samples,  one would like to apply deconvolution to account for cell types. My samples were Saliva samples so for EWAS I will be controling for Epithelial, Fibroblast, B, NK, CD4T, CD8T, Monocytes. 
 
-Ancestry(race): For methylation principal components, Comp.2 and Comp.3 are more accurate in assessing ancestry. One can also test the correlation between self-reported race and mPCs to see which components are better predictors. One can also use a PC plot to visualize.
+Ancestry(race): For methylation, principal components, Comp.2 and Comp.3 are more accurate in assessing ancestry. One can also test the correlation between self-reported race and mPCs to see which components are better predictors. One can also use a PC plot to visualize.
 
 ## Analysis
 
@@ -60,7 +60,7 @@ Reading idat files
 meth <- read_idats(paths, quiet = FALSE)
 ```
 
-3. I prefer to keep plotting my data as I go along the analysis to get a feel about the dataset and to look for potential issues .  Below is the violin plot of raw intensities (methylated probes) across the samples. I could spot that some samples(S25-S40) have unexpectadely low values and same was observed for unmethylated intensities which made me suspect the quality of the Chip since all 16 samples belong to 2 distinct chips.  Later on we will see that these 16 samples failed the QC and has to be dropped from analysis.
+3. I prefer to keep plotting my data as I go along the analysis to get a feel about the dataset and to look for potential issues .  Below is the violin plot of raw intensities (methylated probes) across the samples. I could spot that some samples(S25-S40) have unexpectadely low intensity values (same was true for unmethylated intensities) which made me suspect the quality of the Chip since all 16 samples belong to 2 distinct chips.  Later on we will see that these 16 samples failed the QC and has to be dropped from analysis.
 ```
 df<-as.data.frame(meth$M)
 colnames(df)<-paste0(rep("S",96),as.character(1:96))
@@ -122,7 +122,7 @@ pheno[, n:=.N, by = donor_id]
 # Check to see if there are any duplicates, and remove idats of the one from the folder
 pheno[n > 1, .(SampleID,donor_id)]
 ```
-9. Write the modified `pheno` object out to use in subsequent steps of analysis.
+9. Save the modified `pheno` object so that it can be used in subsequent steps of analysis.
 
 10. OPTIONAL :  Before saving the pheno table, the metadata can be scaled for using them in models.
 ```phenoScaled$LngthDeliv <-scale(phenoScaled$LngthDeliv)
