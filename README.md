@@ -113,7 +113,7 @@ ggplot(OutlierScore_df,aes(x=sample,y=Outlier_Score))+
 ```
 ![Outlier Score of samples](./img/OutlierSCore.png)
 
-8. Finally, we check if any of the samples are duplicates using `enumerate_sample_donors`. `enumerate_sample_donors` returns for each sample the donor IDs. if 2 samples are identical based on the genotypes same ID is returned.
+8. Finally, we check if any of the samples are duplicates using `enumerate_sample_donors`. `enumerate_sample_donors` returns for each sample the donor IDs. If 2 samples are identical based on the genotypes, same ID is returned by the function.
 
 ```pheno$donor_id <- enumerate_sample_donors(genotypes)
 
