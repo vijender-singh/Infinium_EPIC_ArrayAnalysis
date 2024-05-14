@@ -1,5 +1,5 @@
 # EpicArrayAnalysis
-R based Illumina Infinium Epicarray analysis
+R based Illumina Infinium Epicarray analysis: Follow for detailed analysis out;ine
 
 Genome-Wide methylation analyses between high and low PTSD groups.
 
