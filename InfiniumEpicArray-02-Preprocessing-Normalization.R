@@ -1,6 +1,6 @@
 rm(list=ls())
 gc() 
-#Pipeline - Script 2 - Preprocessing and Normalization
+#Pipeline - Script 2 - Preprocessing and Normalization: details
 #########################################################################
 
 # path to source file required to install the packages
