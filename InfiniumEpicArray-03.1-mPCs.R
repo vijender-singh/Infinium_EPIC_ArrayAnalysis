@@ -1,4 +1,4 @@
-#Usee with location.based.pc() function
+#Usee with location.based.pc() function ~ Need more details 
 
 ### This code can be used as an example or can be directly modified by the user to compute "location-based"
 ### principal components as described in Barfield et al. (2014) Gen Epid, in press.
