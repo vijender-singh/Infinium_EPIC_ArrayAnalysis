@@ -1,4 +1,4 @@
-#BiocManager::install("missMethyl") # install the package
+#BiocManager::install("missMethyl") # install the package Check the version
 library(missMethyl)
 library(IlluminaHumanMethylationEPICanno.ilm10b4.hg19)
 
