@@ -1,5 +1,5 @@
 #########################################################################
-### PGC Pipeline - Script 3 - Calculate cell type proportions
+### PGC Pipeline - Script 3 - Calculate cell type proportions: Details
 #########################################################################
 #' remove all objects from your workspace
 rm(list=ls())
