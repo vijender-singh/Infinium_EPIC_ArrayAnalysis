@@ -1,5 +1,5 @@
 #########################################################################
-### PGC Pipeline - Script 1 - Quality Checks
+### PGC Pipeline - Script 1 - Quality Checks : details
 #########################################################################
 # Path to the source file (install_needed_packages.R) required to install the packages
 # This install_needed_packages.R file is part of the pipeline package
