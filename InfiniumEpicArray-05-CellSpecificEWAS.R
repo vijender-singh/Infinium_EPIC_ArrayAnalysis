@@ -1,4 +1,4 @@
- Pipeline - Script 5 - Cell Specific EWAS
+# Pipeline - Script 5 - Cell Specific EWAS Details
 #########################################################################
 
 # Load the code to install packages
